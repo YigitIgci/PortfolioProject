@@ -1,0 +1,7 @@
+-- Finding Null and blank spaces in PropertyAddress column
+
+select a.parcelid,a.propertyaddress,b.parcelid,b.propertyaddress
+from nashville_housing.nashvillehousing a
+join nashville_housing.nashvillehousing b
+on a.parcelid=b.parcelid and a.uniqueid <> b.uniqueid
+where  a.propertyaddress is null or a.propertyaddress not like '%_%'
